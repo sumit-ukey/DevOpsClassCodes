@@ -24,16 +24,12 @@ stage('Deployment') {
  // Deployment
  script {
  echo "deployment"
- sh 'cp
-/var/lib/jenkins/workspace/package_1/target/addressbook.war
-/opt/tomcat/webapps/'
+ sh 'cp /var/lib/jenkins/workspace/package_1/target/addressbook.war /opt/tomcat/webapps/'
  }
  }
  stage('publish html report') {
  echo "publishing the html report"
- publishHTML([allowMissing: false, alwaysLinkToLastBuild:
-false, keepAll: false, reportDir: '', reportFiles: 'index.html', reportName:
-'HTML Report', reportTitles: ''])
+ publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
  }
  stage('clean up') {
  echo "cleaning up the workspace"
