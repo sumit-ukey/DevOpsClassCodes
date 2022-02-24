@@ -40,7 +40,7 @@ stage('Deployment') {
 finally {
 
 
-(currentBuild.result != "ABORTED") {
+(currentBuild.result != "ABORTED")  && node(any) {
  // Send e-mail notifications for failed or unstable builds.
  // currentBuild.result must be non-null for this step to work.
  step([$class: 'Mailer',
